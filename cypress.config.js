@@ -13,8 +13,6 @@ module.exports = defineConfig({
 });
 
 
-
-
 // Comandos para ejecutar Cypress y generar reportes de Allure
 //npx cypress run                  # Ejecuta pruebas
 //Comando para abrir cypress

@@ -4,7 +4,7 @@
   "description": "Pruebas E2E en Fracttal usando Cypress con POM",
   "scripts": {
     "test:chrome": "cypress run --browser chrome",
-    "test": "npx cypress run",
+    "test": "npx cypress run --env allure=true",
     "open": "cypress open",
     "allure": "allure",
     "report": "allure generate allure-results --clean -o allure-report",
