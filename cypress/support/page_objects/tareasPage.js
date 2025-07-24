@@ -12,7 +12,7 @@ class TareasPage {
   }
 
    clickGuardarTarea() {
-    cy.get('.qa-btn-save-details').click({force: true });
+    cy.get('.qa-btn-save-details').should('be.disabled').click();
   }
   
 }
