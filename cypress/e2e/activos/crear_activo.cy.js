@@ -13,7 +13,6 @@ describe('Crear Activo y Tarea de Mantenimiento', () => {
   });
 
   it('Login, creación de activo y tarea', () => {
-
     // Login
     loginPage.enterEmail('testersqa2@gmail.com');
     loginPage.enterPassword('TesterFracttal2025.*');
@@ -39,12 +38,34 @@ describe('Crear Activo y Tarea de Mantenimiento', () => {
     menuPage.openMainMenu();
     menuPage.goToCatalogos();
     menuPage.goToTareas();
+    
 
+    // Crear tarea
     tareasPage.goToPlanTareas();
     tareasPage.clickCrearTarea();
     cy.wait(1000);
     tareasPage.ingresarNombreTarea('Mantenimiento preventivo');
     cy.wait(10000);
-    /// Apartir de no me permite continuar con el flujo de la prueba, ya que no me permite guardar la tarea, se me queda en un pantallazo azul o el boton no se habilita
+    //tareasPage.clickGuardarTarea();
+    //cy.wait(1000);
+    /// Apartir de este punto no me permite continuar con el flujo de la prueba, ya que no 
+    // me permite guardar la tarea, se me queda en un pantallazo 
+    // azul o el boton no se habilita
+
+    //NOTA: Este error en Cypress es común cuando una aplicación 
+    // web carga un script desde un dominio cruzado (cross-origin), y ese script 
+    // lanza una excepción no capturada. Debido a las restricciones de seguridad 
+    // del navegador (por política de CORS), Cypress no puede acceder a detalles 
+    // como el stack trace del error, y lanza este mensaje:
+    //(uncaught exception) Error: Script error. Cypress detected that an 
+    // uncaught error was thrown from a cross origin script.
+
+    //¿Por qué sucede?
+    //Tu aplicación está incluyendo un script desde otro 
+    // dominio (por ejemplo, un CDN externo o un servicio de 
+    // terceros como Google Analytics, Sentry, etc.).
+    //Ese script externo lanza una excepción.
+    //Cypress lo detecta como un error uncaught en tiempo de ejecución, pero por política de seguridad del navegador, no puede acceder a más información sobre el error.
+
   });
 });

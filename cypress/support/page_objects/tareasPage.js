@@ -8,8 +8,13 @@ class TareasPage {
   }
 
   ingresarNombreTarea(nombre) {
-    cy.get('.MuiOutlinedInput-input').first().type(nombre,  { delay: 2000 });
+    cy.get('.MuiOutlinedInput-input').first().type(nombre,  { delay: 2000 }).invoke('removeAttr', 'disabled');
   }
+
+   clickGuardarTarea() {
+    cy.get('.qa-btn-save-details').click({force: true });
+  }
+  
 }
 
 export const tareasPage = new TareasPage();
