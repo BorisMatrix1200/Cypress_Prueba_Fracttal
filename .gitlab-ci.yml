@@ -1,0 +1,29 @@
+stages:
+  - test
+
+e2e_tests:
+  image: cypress/browsers:node-18.12.0-chrome-107
+  stage: test
+  script:
+    - npm install
+    - npx cypress run --browser chrome
+    - npm run allure:generate
+  artifacts:
+    when: always
+    paths:
+      - cypress/videos
+      - cypress/screenshots
+      - allure-report
+      - allure-results
+
+---
+## Últimos pasos
+
+1. **Inicializa Git y sube a GitLab/GitHub:**
+
+```bash
+git init
+git remote add origin <URL>
+git add .
+git commit -m "feat: Cypress POM para Fracttal"
+git push -u origin main
